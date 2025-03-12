@@ -14,6 +14,14 @@ def parse_arguments():
     parser_setup = subparsers.add_parser("setup",
         help = "download and compile cmdstan"
     )
+    parser_setup.add_argument('-v', '--verbose',
+        help = "show CmdStan compilation essages",
+        action = 'store_true'
+    )
+    parser_setup.add_argument('--version',
+        help = "set CmdStan version to install",
+        type = str
+    )
     parser_setup.set_defaults(func=setup_cmdstan)
     # fit subcommand
     parser_fit = subparsers.add_parser("fit",
@@ -69,7 +77,7 @@ def parse_arguments():
 
 
 def setup_cmdstan(args):
-    stan.install_cmdstan()
+    stan.install_cmdstan(overwrite=True, version=args.version, verbose=args.verbose)
 
 
 def mrp_fit(args):
