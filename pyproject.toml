@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1c01a6863ce1ddcf0173068a41fd38dea9c1ab93303027b7f1e81406e13ed670
-size 599
+[tool.poetry]
+name = "altloss"
+version = "0.1.0"
+description = "alternative loss model"
+authors = ["Alex Constandache <alex.constandache@fishsciences.net>"]
+readme = "README.md"
+license = "BSD"
+packages = [
+  { include = "altloss" }
+]
+package-mode = true
+include = [
+  { path = "stan/mrp3.stan", format = ["sdist", "wheel"] } 
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+cmdstanpy = "^1.2.5"
+pandas = "^2.2.3"
+openpyxl = "^3.1.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[project]
+name = "altloss"
+
+[tool.poetry.scripts]
+altloss = "altloss.cli:main"
