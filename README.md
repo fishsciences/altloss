@@ -11,7 +11,9 @@ and install CmdStan.
 The model expects two input files: one file containing observations (usually
 called `observations.csv`), and one containing tagging records (usually named
 `tags.csv`). An example of such files, based on the 2017-2023 acoustic releases,
-can be found in the `clean_data` directory.
+can be found in the `clean_data` directory. You will need to install the Large
+File Storage (LFS) extension in Git, in order to check out the input data files,
+or the model outputs
 
 To fit the model for fall Chinook salmon, for example, you would run:
 ```
